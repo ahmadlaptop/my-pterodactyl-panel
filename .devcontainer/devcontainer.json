@@ -1,0 +1,23 @@
+{
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {}
+    },
+    "forwardPorts": [80, 443, 2022, 8080, 3306],
+    "portsAttributes": {
+        "80": {
+            "label": "Pterodactyl Panel (HTTP)",
+            "onAutoForward": "notify"
+        },
+        "443": {
+            "label": "Pterodactyl Panel (HTTPS)",
+            "onAutoForward": "notify"
+        },
+        "2022": {
+            "label": "Wings SFTP Port",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "bash ./.devcontainer/setup.sh"
+}
